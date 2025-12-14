@@ -80,4 +80,77 @@ LEFT JOIN Lease l ON u.UnitID = l.UnitID;
 SELECT * FROM vw_occupancy
 
 ----------------------------------------------------------------------------------------------------------------
+-- Maintenance Operations View
 
+CREATE VIEW vw_maintenance_requests AS
+SELECT
+    mr.RequestID,
+    mr.category,
+    mr.status AS request_status,
+
+    u.UnitID,
+    p.PropertyID,
+    p.Name AS PropertyName,
+
+    ra.date_assigned,
+    ra.status AS assignment_status,
+
+    v.VendorID,
+    v.Name AS VendorName
+FROM MaintenanceRequest mr
+JOIN Unit u ON mr.UnitID = u.UnitID
+JOIN Property p ON u.PropertyID = p.PropertyID
+LEFT JOIN RequestAssigned ra ON mr.RequestID = ra.RequestID
+LEFT JOIN Vendor v ON ra.VendorID = v.VendorID;
+
+SELECT * FROM vw_maintenance_requests
+
+----------------------------------------------------------------------------------------------------------------
+-- Messaging & Engagement View
+CREATE VIEW vw_messages AS
+SELECT
+    m.MessageID,
+    m.sent_at,
+    DATENAME(MONTH, m.sent_at) AS message_month,
+    YEAR(m.sent_at) AS message_year,
+    m.is_read,
+
+    mt.ThreadID,
+    mt.subject,
+
+    u.UserID,
+    u.email,
+
+    c.CompanyID,
+    c.Name AS CompanyName
+FROM Message m
+JOIN MessageThread mt ON m.ThreadID = mt.ThreadID
+JOIN [User] u ON m.UserID = u.UserID
+JOIN PropertyManagement pm ON mt.ManagementID = pm.ManagementID
+JOIN Company c ON pm.CompanyID = c.CompanyID;
+
+
+SELECT * FROM vw_messages
+
+----------------------------------------------------------------------------------------------------------------
+-- Audit & Activity View
+
+CREATE VIEW vw_audit_activity AS
+SELECT
+    AuditID,
+    created_at,
+    DATENAME(MONTH, created_at) AS activity_month,
+    YEAR(created_at) AS activity_year,
+    entity,
+    action,
+    actor,
+    c.CompanyID,
+    c.Name AS CompanyName
+FROM AuditLog a
+JOIN Company c ON a.CompanyID = c.CompanyID;
+
+
+SELECT * FROM vw_audit_activity
+
+----------------------------------------------------------------------------------------------------------------
+--
