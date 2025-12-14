@@ -383,3 +383,87 @@ SELECT * FROM UnitAmenity
 SELECT * FROM [User]
 SELECT * FROM User_Role
 SELECT * FROM Vendor
+
+
+-- Additional Invoices (multiple months)
+INSERT INTO Invoice (LeaseID, amount_due, due_date, status) VALUES
+(1, 2200, '2024-05-01', 'Paid'),
+(1, 2200, '2024-06-01', 'Paid'),
+(2, 3100, '2024-05-01', 'Paid'),
+(2, 3100, '2024-06-01', 'Pending'),
+(3, 2800, '2024-05-01', 'Paid'),
+(3, 2800, '2024-06-01', 'Paid'),
+(4, 3800, '2024-05-10', 'Pending'),
+(5, 1900, '2024-05-20', 'Paid'),
+(6, 3500, '2024-04-15', 'Paid'),
+(7, 3600, '2024-05-15', 'Pending'),
+(8, 1600, '2024-05-05', 'Paid'),
+(9, 2500, '2024-05-01', 'Overdue'),
+(10, 4500, '2024-05-01', 'Pending');
+
+
+-- Additional Payments
+INSERT INTO Payment (TenantID, InvoiceID, amount, date, method) VALUES
+(1, 11, 2200, '2024-04-29', 'ACH Transfer'),
+(1, 12, 2200, '2024-05-30', 'ACH Transfer'),
+(2, 13, 3100, '2024-04-30', 'Credit Card'),
+(3, 15, 2800, '2024-04-29', 'Debit Card'),
+(3, 16, 2800, '2024-05-30', 'Debit Card'),
+(5, 18, 1900, '2024-05-18', 'Check'),
+(6, 19, 3500, '2024-04-14', 'ACH Transfer'),
+(8, 21, 1600, '2024-05-04', 'Credit Card');
+
+
+-- Additional Maintenance Requests
+INSERT INTO MaintenanceRequest (UnitID, TenantID, category, description, status) VALUES
+(1, 1, 'General', 'Door hinge squeaking', 'Completed'),
+(2, 2, 'HVAC', 'AC leaking water', 'In Progress'),
+(3, 3, 'Plumbing', 'Clogged kitchen sink', 'Completed'),
+(4, 4, 'Electrical', 'Power outage in living room', 'Open'),
+(5, 5, 'Appliance', 'Oven not heating', 'In Progress'),
+(6, 6, 'HVAC', 'Thermostat malfunction', 'Completed'),
+(7, 7, 'General', 'Loose railing', 'Open'),
+(8, 8, 'Electrical', 'Smoke detector beeping', 'Completed'),
+(9, 9, 'Plumbing', 'Water heater noise', 'In Progress'),
+(10, 10, 'Appliance', 'Washing machine leaking', 'Open');
+
+
+-- Additional Vendor Assignments
+INSERT INTO RequestAssigned (RequestID, VendorID, status, date_assigned) VALUES
+(21, 5, 'Completed', '2024-04-05'),
+(22, 2, 'In Progress', '2024-04-08'),
+(23, 1, 'Completed', '2024-04-06'),
+(24, 3, 'Assigned', '2024-04-10'),
+(25, 4, 'In Progress', '2024-04-12'),
+(26, 2, 'Completed', '2024-04-14'),
+(27, 5, 'Assigned', '2024-04-16'),
+(28, 3, 'Completed', '2024-04-18'),
+(29, 1, 'In Progress', '2024-04-20'),
+(30, 4, 'Assigned', '2024-04-22');
+
+
+-- Additional Messages
+INSERT INTO Message (ThreadID, UserID, body) VALUES
+(1, 1, 'Please submit maintenance requests via the portal.'),
+(2, 3, 'HVAC maintenance will occur next week.'),
+(3, 5, 'Parking permits are required starting May 1st.'),
+(4, 7, 'Emergency exits must remain clear at all times.'),
+(5, 9, 'Late fees apply after the 5th of each month.'),
+(6, 1, 'Community meeting scheduled for April 30th.'),
+(7, 3, 'Security patrol hours have been extended.'),
+(8, 5, 'Holiday decorations must be removed by Jan 10.'),
+(9, 7, 'Lease renewal reminders will be sent soon.');
+
+
+-- Additional Audit Logs
+INSERT INTO AuditLog (CompanyID, actor, entity, action, created_at) VALUES
+(1, 'system', 'Invoice', 'AUTO_GENERATE', '2024-05-01'),
+(2, 'accountant@urbanliving.com', 'Payment', 'RECONCILE', '2024-05-03'),
+(3, 'manager@sunrise.com', 'MaintenanceRequest', 'CREATE', '2024-05-06'),
+(4, 'admin@metro.com', 'Lease', 'RENEW', '2024-05-10'),
+(5, 'support@greenvalley.com', 'Message', 'SEND', '2024-05-12'),
+(6, 'system', 'Invoice', 'AUTO_GENERATE', '2024-06-01'),
+(7, 'admin@mountainview.com', 'User', 'CREATE', '2024-06-05'),
+(8, 'admin@citycenter.com', 'Role', 'UPDATE', '2024-06-07');
+
+SELECT * FROM AuditLog
