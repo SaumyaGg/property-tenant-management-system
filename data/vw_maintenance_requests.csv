@@ -1,0 +1,41 @@
+RequestID,category,request_status,UnitID,PropertyID,PropertyName,date_assigned,assignment_status,VendorID,VendorName
+1,Plumbing,Open,1,1,Beacon Hill Apartments,2024-03-15 00:00:00.000,Assigned,1,Boston Plumbing Services
+2,HVAC,In Progress,2,1,Beacon Hill Apartments,2024-03-14 00:00:00.000,In Progress,2,Elite HVAC Solutions
+3,Electrical,Open,3,2,Back Bay Towers,2024-03-16 00:00:00.000,Assigned,3,Spark Electrical Co
+4,Appliance,Completed,4,2,Back Bay Towers,2024-03-10 00:00:00.000,Completed,4,Appliance Repair Pros
+5,Plumbing,Open,5,3,Cambridge Commons,2024-03-17 00:00:00.000,Assigned,1,Boston Plumbing Services
+6,HVAC,In Progress,6,4,Brookline Village Homes,2024-03-13 00:00:00.000,In Progress,2,Elite HVAC Solutions
+7,General,Open,7,5,Fenway Park Plaza,2024-03-18 00:00:00.000,Assigned,5,General Maintenance LLC
+8,Electrical,Completed,8,6,South End Lofts,2024-03-11 00:00:00.000,Completed,3,Spark Electrical Co
+9,Appliance,In Progress,9,7,Seaport District Residences,2024-03-15 00:00:00.000,In Progress,4,Appliance Repair Pros
+10,Plumbing,Open,10,8,North End Flats,2024-03-19 00:00:00.000,Assigned,1,Boston Plumbing Services
+11,HVAC,Open,11,11,Downtown Crossing Residences,2024-04-20 00:00:00.000,Assigned,2,Elite HVAC Solutions
+12,Plumbing,In Progress,12,11,Downtown Crossing Residences,2024-04-22 00:00:00.000,In Progress,1,Boston Plumbing Services
+13,Electrical,Completed,13,12,Somerville Heights,2024-04-18 00:00:00.000,Completed,3,Spark Electrical Co
+14,General,Open,14,12,Somerville Heights,2024-04-25 00:00:00.000,Assigned,5,General Maintenance LLC
+15,Appliance,Open,15,13,Medford Square Homes,2024-04-26 00:00:00.000,Assigned,4,Appliance Repair Pros
+16,Plumbing,Open,1,1,Beacon Hill Apartments,NULL,NULL,NULL,NULL
+17,HVAC,In Progress,2,1,Beacon Hill Apartments,NULL,NULL,NULL,NULL
+18,Electrical,Open,3,2,Back Bay Towers,NULL,NULL,NULL,NULL
+19,Appliance,Completed,4,2,Back Bay Towers,NULL,NULL,NULL,NULL
+20,Plumbing,Open,5,3,Cambridge Commons,NULL,NULL,NULL,NULL
+21,HVAC,In Progress,6,4,Brookline Village Homes,2024-04-05 00:00:00.000,Completed,5,General Maintenance LLC
+22,General,Open,7,5,Fenway Park Plaza,2024-04-08 00:00:00.000,In Progress,2,Elite HVAC Solutions
+23,Electrical,Completed,8,6,South End Lofts,2024-04-06 00:00:00.000,Completed,1,Boston Plumbing Services
+24,Appliance,In Progress,9,7,Seaport District Residences,2024-04-10 00:00:00.000,Assigned,3,Spark Electrical Co
+25,Plumbing,Open,10,8,North End Flats,2024-04-12 00:00:00.000,In Progress,4,Appliance Repair Pros
+26,HVAC,Open,11,11,Downtown Crossing Residences,2024-04-14 00:00:00.000,Completed,2,Elite HVAC Solutions
+27,Plumbing,In Progress,12,11,Downtown Crossing Residences,2024-04-16 00:00:00.000,Assigned,5,General Maintenance LLC
+28,Electrical,Completed,13,12,Somerville Heights,2024-04-18 00:00:00.000,Completed,3,Spark Electrical Co
+29,General,Open,14,12,Somerville Heights,2024-04-20 00:00:00.000,In Progress,1,Boston Plumbing Services
+30,Appliance,Open,15,13,Medford Square Homes,2024-04-22 00:00:00.000,Assigned,4,Appliance Repair Pros
+31,General,Completed,1,1,Beacon Hill Apartments,NULL,NULL,NULL,NULL
+32,HVAC,In Progress,2,1,Beacon Hill Apartments,NULL,NULL,NULL,NULL
+33,Plumbing,Completed,3,2,Back Bay Towers,NULL,NULL,NULL,NULL
+34,Electrical,Open,4,2,Back Bay Towers,NULL,NULL,NULL,NULL
+35,Appliance,In Progress,5,3,Cambridge Commons,NULL,NULL,NULL,NULL
+36,HVAC,Completed,6,4,Brookline Village Homes,NULL,NULL,NULL,NULL
+37,General,Open,7,5,Fenway Park Plaza,NULL,NULL,NULL,NULL
+38,Electrical,Completed,8,6,South End Lofts,NULL,NULL,NULL,NULL
+39,Plumbing,In Progress,9,7,Seaport District Residences,NULL,NULL,NULL,NULL
+40,Appliance,Open,10,8,North End Flats,NULL,NULL,NULL,NULL

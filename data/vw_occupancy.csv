@@ -1,0 +1,54 @@
+PropertyID,PropertyName,UnitID,LeaseID,start_date,end_date,is_occupied
+1,Beacon Hill Apartments,1,1,2024-01-15 00:00:00.000,2025-01-14 00:00:00.000,1
+1,Beacon Hill Apartments,1,16,2024-01-15 00:00:00.000,2025-01-14 00:00:00.000,1
+1,Beacon Hill Apartments,2,2,2024-02-01 00:00:00.000,2025-01-31 00:00:00.000,1
+1,Beacon Hill Apartments,2,17,2024-02-01 00:00:00.000,2025-01-31 00:00:00.000,1
+2,Back Bay Towers,3,3,2023-12-01 00:00:00.000,2024-11-30 00:00:00.000,1
+2,Back Bay Towers,3,18,2023-12-01 00:00:00.000,2024-11-30 00:00:00.000,1
+2,Back Bay Towers,4,4,2024-03-10 00:00:00.000,2025-03-09 00:00:00.000,1
+2,Back Bay Towers,4,19,2024-03-10 00:00:00.000,2025-03-09 00:00:00.000,1
+3,Cambridge Commons,5,5,2024-01-20 00:00:00.000,2025-01-19 00:00:00.000,1
+3,Cambridge Commons,5,20,2024-01-20 00:00:00.000,2025-01-19 00:00:00.000,1
+4,Brookline Village Homes,6,6,2023-11-15 00:00:00.000,2024-11-14 00:00:00.000,1
+4,Brookline Village Homes,6,21,2023-11-15 00:00:00.000,2024-11-14 00:00:00.000,1
+5,Fenway Park Plaza,7,7,2024-02-15 00:00:00.000,2025-02-14 00:00:00.000,1
+5,Fenway Park Plaza,7,22,2024-02-15 00:00:00.000,2025-02-14 00:00:00.000,1
+6,South End Lofts,8,8,2024-01-05 00:00:00.000,2025-01-04 00:00:00.000,1
+6,South End Lofts,8,23,2024-01-05 00:00:00.000,2025-01-04 00:00:00.000,1
+7,Seaport District Residences,9,9,2023-10-01 00:00:00.000,2024-09-30 00:00:00.000,1
+7,Seaport District Residences,9,24,2023-10-01 00:00:00.000,2024-09-30 00:00:00.000,1
+8,North End Flats,10,10,2024-03-01 00:00:00.000,2025-02-28 00:00:00.000,1
+8,North End Flats,10,25,2024-03-01 00:00:00.000,2025-02-28 00:00:00.000,1
+11,Downtown Crossing Residences,11,11,2024-04-01 00:00:00.000,2025-03-31 00:00:00.000,1
+11,Downtown Crossing Residences,11,26,2024-04-01 00:00:00.000,2025-03-31 00:00:00.000,1
+11,Downtown Crossing Residences,12,12,2024-05-01 00:00:00.000,2025-04-30 00:00:00.000,0
+11,Downtown Crossing Residences,12,27,2024-05-01 00:00:00.000,2025-04-30 00:00:00.000,0
+12,Somerville Heights,13,13,2024-04-15 00:00:00.000,2025-04-14 00:00:00.000,0
+12,Somerville Heights,13,28,2024-04-15 00:00:00.000,2025-04-14 00:00:00.000,0
+12,Somerville Heights,14,14,2024-06-01 00:00:00.000,2025-05-31 00:00:00.000,0
+12,Somerville Heights,14,29,2024-06-01 00:00:00.000,2025-05-31 00:00:00.000,0
+13,Medford Square Homes,15,15,2024-03-20 00:00:00.000,2025-03-19 00:00:00.000,1
+13,Medford Square Homes,15,30,2024-03-20 00:00:00.000,2025-03-19 00:00:00.000,1
+14,Dorchester Bay Apartments,16,NULL,NULL,NULL,0
+14,Dorchester Bay Apartments,17,NULL,NULL,NULL,0
+15,Roxbury Commons,18,NULL,NULL,NULL,0
+15,Roxbury Commons,19,NULL,NULL,NULL,0
+1,Beacon Hill Apartments,20,NULL,NULL,NULL,0
+1,Beacon Hill Apartments,21,NULL,NULL,NULL,0
+2,Back Bay Towers,22,NULL,NULL,NULL,0
+2,Back Bay Towers,23,NULL,NULL,NULL,0
+3,Cambridge Commons,24,NULL,NULL,NULL,0
+4,Brookline Village Homes,25,NULL,NULL,NULL,0
+5,Fenway Park Plaza,26,NULL,NULL,NULL,0
+6,South End Lofts,27,NULL,NULL,NULL,0
+7,Seaport District Residences,28,NULL,NULL,NULL,0
+8,North End Flats,29,NULL,NULL,NULL,0
+11,Downtown Crossing Residences,30,NULL,NULL,NULL,0
+11,Downtown Crossing Residences,31,NULL,NULL,NULL,0
+12,Somerville Heights,32,NULL,NULL,NULL,0
+12,Somerville Heights,33,NULL,NULL,NULL,0
+13,Medford Square Homes,34,NULL,NULL,NULL,0
+14,Dorchester Bay Apartments,35,NULL,NULL,NULL,0
+14,Dorchester Bay Apartments,36,NULL,NULL,NULL,0
+15,Roxbury Commons,37,NULL,NULL,NULL,0
+15,Roxbury Commons,38,NULL,NULL,NULL,0

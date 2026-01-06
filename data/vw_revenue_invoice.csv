@@ -1,0 +1,46 @@
+InvoiceID,due_date,invoice_month,invoice_year,amount_due,invoice_status,LeaseID,monthly_rent,UnitID,PropertyID,PropertyName,PropertyType,CompanyID,CompanyName
+1,2024-04-01,April,2024,2200.00,Paid,1,2200.00,1,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+2,2024-04-01,April,2024,3100.00,Pending,2,3100.00,2,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+3,2024-04-01,April,2024,2800.00,Paid,3,2800.00,3,2,Back Bay Towers,Condo,1,Apex Property Group
+4,2024-04-10,April,2024,3800.00,Pending,4,3800.00,4,2,Back Bay Towers,Condo,1,Apex Property Group
+5,2024-04-20,April,2024,1900.00,Paid,5,1900.00,5,3,Cambridge Commons,Apartment,1,Apex Property Group
+6,2024-03-15,March,2024,3500.00,Paid,6,3500.00,6,4,Brookline Village Homes,Townhouse,2,Urban Living Management
+7,2024-04-15,April,2024,3600.00,Pending,7,3600.00,7,5,Fenway Park Plaza,Apartment,2,Urban Living Management
+8,2024-04-05,April,2024,1600.00,Paid,8,1600.00,8,6,South End Lofts,Loft,3,Sunrise Realty Solutions
+9,2024-04-01,April,2024,2500.00,Overdue,9,2500.00,9,7,Seaport District Residences,Condo,4,Metro Housing Corp
+10,2024-04-01,April,2024,4500.00,Pending,10,4500.00,10,8,North End Flats,Apartment,5,Green Valley Properties
+11,2024-05-01,May,2024,2300.00,Paid,11,2300.00,11,11,Downtown Crossing Residences,Apartment,1,Apex Property Group
+12,2024-06-01,June,2024,2300.00,Paid,11,2300.00,11,11,Downtown Crossing Residences,Apartment,1,Apex Property Group
+13,2024-06-01,June,2024,3200.00,Pending,12,3200.00,12,11,Downtown Crossing Residences,Apartment,1,Apex Property Group
+14,2024-05-15,May,2024,1950.00,Paid,13,1950.00,13,12,Somerville Heights,Apartment,1,Apex Property Group
+15,2024-07-01,July,2024,3600.00,Pending,14,3600.00,14,12,Somerville Heights,Apartment,1,Apex Property Group
+16,2024-04-01,April,2024,2100.00,Overdue,15,2100.00,15,13,Medford Square Homes,Condo,2,Urban Living Management
+17,2024-04-01,April,2024,2200.00,Paid,1,2200.00,1,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+18,2024-04-01,April,2024,3100.00,Pending,2,3100.00,2,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+19,2024-04-01,April,2024,2800.00,Paid,3,2800.00,3,2,Back Bay Towers,Condo,1,Apex Property Group
+20,2024-04-10,April,2024,3800.00,Pending,4,3800.00,4,2,Back Bay Towers,Condo,1,Apex Property Group
+21,2024-04-20,April,2024,1900.00,Paid,5,1900.00,5,3,Cambridge Commons,Apartment,1,Apex Property Group
+22,2024-03-15,March,2024,3500.00,Paid,6,3500.00,6,4,Brookline Village Homes,Townhouse,2,Urban Living Management
+23,2024-04-15,April,2024,3600.00,Pending,7,3600.00,7,5,Fenway Park Plaza,Apartment,2,Urban Living Management
+24,2024-04-05,April,2024,1600.00,Paid,8,1600.00,8,6,South End Lofts,Loft,3,Sunrise Realty Solutions
+25,2024-04-01,April,2024,2500.00,Overdue,9,2500.00,9,7,Seaport District Residences,Condo,4,Metro Housing Corp
+26,2024-04-01,April,2024,4500.00,Pending,10,4500.00,10,8,North End Flats,Apartment,5,Green Valley Properties
+27,2024-05-01,May,2024,2300.00,Paid,11,2300.00,11,11,Downtown Crossing Residences,Apartment,1,Apex Property Group
+28,2024-06-01,June,2024,2300.00,Paid,11,2300.00,11,11,Downtown Crossing Residences,Apartment,1,Apex Property Group
+29,2024-06-01,June,2024,3200.00,Pending,12,3200.00,12,11,Downtown Crossing Residences,Apartment,1,Apex Property Group
+30,2024-05-15,May,2024,1950.00,Paid,13,1950.00,13,12,Somerville Heights,Apartment,1,Apex Property Group
+31,2024-07-01,July,2024,3600.00,Pending,14,3600.00,14,12,Somerville Heights,Apartment,1,Apex Property Group
+32,2024-04-01,April,2024,2100.00,Overdue,15,2100.00,15,13,Medford Square Homes,Condo,2,Urban Living Management
+33,2024-05-01,May,2024,2200.00,Paid,1,2200.00,1,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+34,2024-06-01,June,2024,2200.00,Paid,1,2200.00,1,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+35,2024-05-01,May,2024,3100.00,Paid,2,3100.00,2,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+36,2024-06-01,June,2024,3100.00,Pending,2,3100.00,2,1,Beacon Hill Apartments,Apartment,1,Apex Property Group
+37,2024-05-01,May,2024,2800.00,Paid,3,2800.00,3,2,Back Bay Towers,Condo,1,Apex Property Group
+38,2024-06-01,June,2024,2800.00,Paid,3,2800.00,3,2,Back Bay Towers,Condo,1,Apex Property Group
+39,2024-05-10,May,2024,3800.00,Pending,4,3800.00,4,2,Back Bay Towers,Condo,1,Apex Property Group
+40,2024-05-20,May,2024,1900.00,Paid,5,1900.00,5,3,Cambridge Commons,Apartment,1,Apex Property Group
+41,2024-04-15,April,2024,3500.00,Paid,6,3500.00,6,4,Brookline Village Homes,Townhouse,2,Urban Living Management
+42,2024-05-15,May,2024,3600.00,Pending,7,3600.00,7,5,Fenway Park Plaza,Apartment,2,Urban Living Management
+43,2024-05-05,May,2024,1600.00,Paid,8,1600.00,8,6,South End Lofts,Loft,3,Sunrise Realty Solutions
+44,2024-05-01,May,2024,2500.00,Overdue,9,2500.00,9,7,Seaport District Residences,Condo,4,Metro Housing Corp
+45,2024-05-01,May,2024,4500.00,Pending,10,4500.00,10,8,North End Flats,Apartment,5,Green Valley Properties

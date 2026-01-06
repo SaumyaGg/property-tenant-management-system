@@ -1,0 +1,36 @@
+MessageID,sent_at,message_month,message_year,is_read,ThreadID,subject,UserID,email,CompanyID,CompanyName
+1,2024-01-15 00:00:00.000,January,2024,1,1,Welcome to Beacon Hill Apartments,1,john.smith@apexproperty.com,1,Apex Property Group
+2,2024-01-16 00:00:00.000,January,2024,1,1,Welcome to Beacon Hill Apartments,2,sarah.jones@email.com,1,Apex Property Group
+3,2024-02-01 00:00:00.000,February,2024,1,2,Monthly Maintenance Schedule,3,mike.brown@urbanliving.com,1,Apex Property Group
+4,2024-02-15 00:00:00.000,February,2024,0,3,Parking Policy Update,3,mike.brown@urbanliving.com,1,Apex Property Group
+5,2024-01-10 00:00:00.000,January,2024,1,4,Emergency Contact Information,5,robert.wilson@sunrise.com,2,Urban Living Management
+6,2024-03-01 00:00:00.000,March,2024,0,5,Rent Payment Reminder,7,james.anderson@metro.com,2,Urban Living Management
+7,2024-02-20 00:00:00.000,February,2024,0,6,Community Event Announcement,9,jennifer.thomas@greenvalley.com,3,Sunrise Realty Solutions
+8,2024-03-05 00:00:00.000,March,2024,0,7,Building Maintenance Notice,1,john.smith@apexproperty.com,4,Metro Housing Corp
+9,2024-01-25 00:00:00.000,January,2024,1,8,Security System Upgrade,3,mike.brown@urbanliving.com,5,Green Valley Properties
+10,2024-12-15 00:00:00.000,December,2024,1,9,Holiday Schedule,5,robert.wilson@sunrise.com,6,Coastal Management LLC
+11,2025-12-14 01:18:54.490,December,2025,0,11,April Rent Reminder,1,john.smith@apexproperty.com,1,Apex Property Group
+12,2025-12-14 01:18:54.490,December,2025,0,12,Planned Water Shutdown,3,mike.brown@urbanliving.com,1,Apex Property Group
+13,2025-12-14 01:18:54.490,December,2025,0,13,Lease Renewal Options,5,robert.wilson@sunrise.com,2,Urban Living Management
+14,2024-01-15 00:00:00.000,January,2024,1,1,Welcome to Beacon Hill Apartments,1,john.smith@apexproperty.com,1,Apex Property Group
+15,2024-01-16 00:00:00.000,January,2024,1,1,Welcome to Beacon Hill Apartments,2,sarah.jones@email.com,1,Apex Property Group
+16,2024-02-01 00:00:00.000,February,2024,1,2,Monthly Maintenance Schedule,3,mike.brown@urbanliving.com,1,Apex Property Group
+17,2024-02-15 00:00:00.000,February,2024,0,3,Parking Policy Update,3,mike.brown@urbanliving.com,1,Apex Property Group
+18,2024-01-10 00:00:00.000,January,2024,1,4,Emergency Contact Information,5,robert.wilson@sunrise.com,2,Urban Living Management
+19,2024-03-01 00:00:00.000,March,2024,0,5,Rent Payment Reminder,7,james.anderson@metro.com,2,Urban Living Management
+20,2024-02-20 00:00:00.000,February,2024,0,6,Community Event Announcement,9,jennifer.thomas@greenvalley.com,3,Sunrise Realty Solutions
+21,2024-03-05 00:00:00.000,March,2024,0,7,Building Maintenance Notice,1,john.smith@apexproperty.com,4,Metro Housing Corp
+22,2024-01-25 00:00:00.000,January,2024,1,8,Security System Upgrade,3,mike.brown@urbanliving.com,5,Green Valley Properties
+23,2024-12-15 00:00:00.000,December,2024,1,9,Holiday Schedule,5,robert.wilson@sunrise.com,6,Coastal Management LLC
+24,2025-12-14 02:04:23.737,December,2025,0,11,April Rent Reminder,1,john.smith@apexproperty.com,1,Apex Property Group
+25,2025-12-14 02:04:23.737,December,2025,0,12,Planned Water Shutdown,3,mike.brown@urbanliving.com,1,Apex Property Group
+26,2025-12-14 02:04:23.737,December,2025,0,13,Lease Renewal Options,5,robert.wilson@sunrise.com,2,Urban Living Management
+27,2025-12-14 03:53:17.560,December,2025,0,1,Welcome to Beacon Hill Apartments,1,john.smith@apexproperty.com,1,Apex Property Group
+28,2025-12-14 03:53:17.560,December,2025,0,2,Monthly Maintenance Schedule,3,mike.brown@urbanliving.com,1,Apex Property Group
+29,2025-12-14 03:53:17.560,December,2025,0,3,Parking Policy Update,5,robert.wilson@sunrise.com,1,Apex Property Group
+30,2025-12-14 03:53:17.560,December,2025,0,4,Emergency Contact Information,7,james.anderson@metro.com,2,Urban Living Management
+31,2025-12-14 03:53:17.560,December,2025,0,5,Rent Payment Reminder,9,jennifer.thomas@greenvalley.com,2,Urban Living Management
+32,2025-12-14 03:53:17.560,December,2025,0,6,Community Event Announcement,1,john.smith@apexproperty.com,3,Sunrise Realty Solutions
+33,2025-12-14 03:53:17.560,December,2025,0,7,Building Maintenance Notice,3,mike.brown@urbanliving.com,4,Metro Housing Corp
+34,2025-12-14 03:53:17.560,December,2025,0,8,Security System Upgrade,5,robert.wilson@sunrise.com,5,Green Valley Properties
+35,2025-12-14 03:53:17.560,December,2025,0,9,Holiday Schedule,7,james.anderson@metro.com,6,Coastal Management LLC

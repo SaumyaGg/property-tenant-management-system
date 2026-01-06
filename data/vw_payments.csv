@@ -1,0 +1,37 @@
+PaymentID,payment_date,payment_month,payment_year,amount,payment_method,InvoiceID,due_date,invoice_status,TenantID,PropertyID,PropertyName
+1,2024-03-28 00:00:00.000,March,2024,2200.00,ACH Transfer,1,2024-04-01,Paid,1,1,Beacon Hill Apartments
+2,2024-03-30 00:00:00.000,March,2024,2800.00,Credit Card,3,2024-04-01,Paid,3,2,Back Bay Towers
+3,2024-03-25 00:00:00.000,March,2024,1900.00,Check,5,2024-04-20,Paid,5,3,Cambridge Commons
+4,2024-03-14 00:00:00.000,March,2024,3500.00,ACH Transfer,6,2024-03-15,Paid,6,4,Brookline Village Homes
+5,2024-04-01 00:00:00.000,April,2024,1600.00,Debit Card,8,2024-04-05,Paid,8,6,South End Lofts
+6,2024-02-28 00:00:00.000,February,2024,2200.00,ACH Transfer,1,2024-04-01,Paid,1,1,Beacon Hill Apartments
+7,2024-02-28 00:00:00.000,February,2024,2800.00,Credit Card,3,2024-04-01,Paid,3,2,Back Bay Towers
+8,2024-02-25 00:00:00.000,February,2024,1900.00,Check,5,2024-04-20,Paid,5,3,Cambridge Commons
+9,2024-02-14 00:00:00.000,February,2024,3500.00,ACH Transfer,6,2024-03-15,Paid,6,4,Brookline Village Homes
+10,2024-03-01 00:00:00.000,March,2024,1600.00,Debit Card,8,2024-04-05,Paid,8,6,South End Lofts
+11,2024-04-28 00:00:00.000,April,2024,2300.00,ACH Transfer,11,2024-05-01,Paid,11,11,Downtown Crossing Residences
+12,2024-05-29 00:00:00.000,May,2024,2300.00,ACH Transfer,12,2024-06-01,Paid,11,11,Downtown Crossing Residences
+13,2024-05-12 00:00:00.000,May,2024,1950.00,Debit Card,14,2024-05-15,Paid,13,12,Somerville Heights
+14,2024-04-10 00:00:00.000,April,2024,2100.00,Check,16,2024-04-01,Overdue,15,13,Medford Square Homes
+15,2024-03-28 00:00:00.000,March,2024,2200.00,ACH Transfer,1,2024-04-01,Paid,1,1,Beacon Hill Apartments
+16,2024-03-30 00:00:00.000,March,2024,2800.00,Credit Card,3,2024-04-01,Paid,3,2,Back Bay Towers
+17,2024-03-25 00:00:00.000,March,2024,1900.00,Check,5,2024-04-20,Paid,5,3,Cambridge Commons
+18,2024-03-14 00:00:00.000,March,2024,3500.00,ACH Transfer,6,2024-03-15,Paid,6,4,Brookline Village Homes
+19,2024-04-01 00:00:00.000,April,2024,1600.00,Debit Card,8,2024-04-05,Paid,8,6,South End Lofts
+20,2024-02-28 00:00:00.000,February,2024,2200.00,ACH Transfer,1,2024-04-01,Paid,1,1,Beacon Hill Apartments
+21,2024-02-28 00:00:00.000,February,2024,2800.00,Credit Card,3,2024-04-01,Paid,3,2,Back Bay Towers
+22,2024-02-25 00:00:00.000,February,2024,1900.00,Check,5,2024-04-20,Paid,5,3,Cambridge Commons
+23,2024-02-14 00:00:00.000,February,2024,3500.00,ACH Transfer,6,2024-03-15,Paid,6,4,Brookline Village Homes
+24,2024-03-01 00:00:00.000,March,2024,1600.00,Debit Card,8,2024-04-05,Paid,8,6,South End Lofts
+25,2024-04-28 00:00:00.000,April,2024,2300.00,ACH Transfer,11,2024-05-01,Paid,11,11,Downtown Crossing Residences
+26,2024-05-29 00:00:00.000,May,2024,2300.00,ACH Transfer,12,2024-06-01,Paid,11,11,Downtown Crossing Residences
+27,2024-05-12 00:00:00.000,May,2024,1950.00,Debit Card,14,2024-05-15,Paid,13,12,Somerville Heights
+28,2024-04-10 00:00:00.000,April,2024,2100.00,Check,16,2024-04-01,Overdue,15,13,Medford Square Homes
+29,2024-04-29 00:00:00.000,April,2024,2200.00,ACH Transfer,11,2024-05-01,Paid,1,11,Downtown Crossing Residences
+30,2024-05-30 00:00:00.000,May,2024,2200.00,ACH Transfer,12,2024-06-01,Paid,1,11,Downtown Crossing Residences
+31,2024-04-30 00:00:00.000,April,2024,3100.00,Credit Card,13,2024-06-01,Pending,2,11,Downtown Crossing Residences
+32,2024-04-29 00:00:00.000,April,2024,2800.00,Debit Card,15,2024-07-01,Pending,3,12,Somerville Heights
+33,2024-05-30 00:00:00.000,May,2024,2800.00,Debit Card,16,2024-04-01,Overdue,3,13,Medford Square Homes
+34,2024-05-18 00:00:00.000,May,2024,1900.00,Check,18,2024-04-01,Pending,5,1,Beacon Hill Apartments
+35,2024-04-14 00:00:00.000,April,2024,3500.00,ACH Transfer,19,2024-04-01,Paid,6,2,Back Bay Towers
+36,2024-05-04 00:00:00.000,May,2024,1600.00,Credit Card,21,2024-04-20,Paid,8,3,Cambridge Commons
