@@ -290,7 +290,6 @@ CREATE TABLE Message (
         FOREIGN KEY (UserID) REFERENCES dbo.[User](UserID)
 );
 
-DROP TABLE Message
 
 
 -- Add foreign key for User.TenantID after Tenant table is created
