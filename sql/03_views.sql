@@ -1,5 +1,5 @@
 -- Revenue & Invoice Analytics View
-CREATE VIEW vw_revenue_invoice AS
+CREATE OR ALTER VIEW vw_revenue_invoice AS
 SELECT
     i.InvoiceID,
     i.due_date,
@@ -31,7 +31,7 @@ SELECT * FROM vw_revenue_invoice
 ----------------------------------------------------------------------------------------------------------------
 -- Payment Performance View
 
-CREATE VIEW vw_payments AS
+CREATE OR ALTER VIEW vw_payments AS
 SELECT
     pay.PaymentID,
     pay.date AS payment_date,
@@ -61,7 +61,7 @@ SELECT * FROM vw_payments
 ----------------------------------------------------------------------------------------------------------------
 --Occupancy & Leasing View
 
-CREATE VIEW vw_occupancy AS
+CREATE OR ALTER VIEW vw_occupancy AS
 SELECT
     p.PropertyID,
     p.Name AS PropertyName,
@@ -82,7 +82,7 @@ SELECT * FROM vw_occupancy
 ----------------------------------------------------------------------------------------------------------------
 -- Maintenance Operations View
 
-CREATE VIEW vw_maintenance_requests AS
+CREATE OR ALTER VIEW vw_maintenance_requests AS
 SELECT
     mr.RequestID,
     mr.category,
@@ -107,7 +107,7 @@ SELECT * FROM vw_maintenance_requests
 
 ----------------------------------------------------------------------------------------------------------------
 -- Messaging & Engagement View
-CREATE VIEW vw_messages AS
+CREATE OR ALTER VIEW vw_messages AS
 SELECT
     m.MessageID,
     m.sent_at,
@@ -135,7 +135,7 @@ SELECT * FROM vw_messages
 ----------------------------------------------------------------------------------------------------------------
 -- Audit & Activity View
 
-CREATE VIEW vw_audit_activity AS
+CREATE OR ALTER VIEW vw_audit_activity AS
 SELECT
     AuditID,
     created_at,
@@ -154,3 +154,98 @@ SELECT * FROM vw_audit_activity
 
 ----------------------------------------------------------------------------------------------------------------
 --
+
+CREATE OR ALTER VIEW vw_dashboard_kpis AS
+SELECT
+    SUM(CASE WHEN i.status = 'Paid' THEN i.amount_due ELSE 0 END) AS total_revenue_collected,
+    SUM(CASE WHEN i.status IN ('Pending','Overdue') THEN i.amount_due ELSE 0 END) AS outstanding_amount,
+    COUNT(DISTINCT CASE WHEN GETDATE() BETWEEN l.start_date AND l.end_date THEN u.UnitID END) * 1.0
+        / COUNT(DISTINCT u.UnitID) AS occupancy_rate,
+    COUNT(DISTINCT mr.RequestID) AS open_maintenance_requests,
+    AVG(l.monthly_rent) AS avg_rent
+FROM Unit u
+LEFT JOIN Lease l ON u.UnitID = l.UnitID
+LEFT JOIN Invoice i ON l.LeaseID = i.LeaseID
+LEFT JOIN MaintenanceRequest mr ON mr.UnitID = u.UnitID AND mr.status <> 'Completed';
+
+SELECT * FROM vw_dashboard_kpis
+
+----------------------------------------------------------------------------------------------------------------
+--
+
+CREATE VIEW vw_property_revenue AS
+SELECT
+    p.Name AS PropertyName,
+    SUM(i.amount_due) AS total_revenue
+FROM Invoice i
+JOIN Lease l ON i.LeaseID = l.LeaseID
+JOIN Unit u ON l.UnitID = u.UnitID
+JOIN Property p ON u.PropertyID = p.PropertyID
+WHERE i.status = 'Paid'
+GROUP BY p.Name;
+
+
+SELECT * FROM vw_property_revenue
+
+----------------------------------------------------------------------------------------------------------------
+--
+
+CREATE VIEW vw_property_risk AS
+SELECT
+    p.Name AS PropertyName,
+    p.Type,
+    COUNT(DISTINCT l.TenantID) AS tenant_count,
+    SUM(i.amount_due) AS total_revenue,
+    SUM(CASE WHEN i.status = 'Overdue' THEN i.amount_due ELSE 0 END) AS overdue_amount
+FROM Property p
+JOIN Unit u ON p.PropertyID = u.PropertyID
+JOIN Lease l ON u.UnitID = l.UnitID
+JOIN Invoice i ON l.LeaseID = i.LeaseID
+GROUP BY p.Name, p.Type;
+
+SELECT * FROM vw_property_risk
+
+----------------------------------------------------------------------------------------------------------------
+--
+
+CREATE VIEW vw_tenant_risk AS
+SELECT
+    t.TenantID,
+    t.credit_score,
+    SUM(l.monthly_rent) AS rent_exposure
+FROM Tenant t
+JOIN Lease l ON t.TenantID = l.TenantID
+GROUP BY t.TenantID, t.credit_score;
+
+
+SELECT * FROM vw_tenant_risk
+
+----------------------------------------------------------------------------------------------------------------
+--
+
+CREATE VIEW vw_maintenance_funnel AS
+SELECT
+    status,
+    COUNT(*) AS request_count
+FROM MaintenanceRequest
+GROUP BY status;
+
+
+SELECT * FROM vw_maintenance_funnel
+
+----------------------------------------------------------------------------------------------------------------
+--
+
+CREATE VIEW vw_vendor_performance AS
+SELECT
+    v.Name AS VendorName,
+    mr.category,
+    COUNT(*) AS total_requests
+FROM Vendor v
+JOIN RequestAssigned ra ON v.VendorID = ra.VendorID
+JOIN MaintenanceRequest mr ON ra.RequestID = mr.RequestID
+GROUP BY v.Name, mr.category;
+
+
+SELECT * FROM vw_vendor_performance
+
