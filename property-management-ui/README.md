@@ -1,283 +1,262 @@
-# Property Management System - GUI
+# Property Management System - Full Stack Application
 
-## Prerequisites
+A comprehensive property management system built with React and Node.js, featuring complete CRUD operations for managing properties, tenants, leases, maintenance requests, invoices, and more.
 
-Before you begin, ensure you have the following installed:
+## 🚀 Features
 
-- **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
-- **SQL Server** (2019 or higher) - [Download](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-- **Azure Data Studio** or **SQL Server Management Studio (SSMS)** - For running SQL scripts
-- **Git** (optional) - For cloning the repository
+- **Dashboard**: Real-time KPIs, revenue tracking, and occupancy rates
+- **Property Management**: Manage properties, units, and amenities
+- **Tenant Management**: Track tenants, leases, and rental agreements
+- **Financial Operations**: Invoice generation, payment tracking, and revenue analytics
+- **Maintenance**: Request tracking and vendor assignment
+- **User Management**: Role-based access control and user administration
+- **Audit Logging**: Complete activity tracking and audit trail
 
-### Verify Node.js Installation
+## 📋 Prerequisites
+
+- **Node.js** (v14 or higher)
+- **SQL Server** (with Property_Management_DB database)
+- **npm** or **yarn**
+
+## 🛠️ Installation
+
+### 1. Clone the Repository
+
 ```bash
-node --version
-npm --version
+cd /Users/saumyagorantala/Documents/Projects/Property_Management_Database/property-management-ui
 ```
 
----
+### 2. Set Up the Database
 
-## Database Setup
+1. Ensure SQL Server is running
+2. Execute the SQL scripts in order:
+   ```bash
+   # Navigate to the sql directory
+   cd ../sql
+   
+   # Run these scripts in SQL Server Management Studio or Azure Data Studio:
+   # 1. 01_create_schema.sql
+   # 2. 02_seed_data.sql
+   # 3. 03_views.sql (optional, for analytics)
+   ```
 
-### Step 1: Create the Database
+### 3. Configure Backend
 
-Open Azure Data Studio or SSMS and connect to your SQL Server instance.
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-### Step 2: Run SQL Scripts (In Order)
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Execute the following scripts in this exact order:
+3. Create a `.env` file (copy from `.env.example`):
+   ```bash
+   cp .env.example .env
+   ```
 
-1. **create_tables.sql** - Creates the database and all tables
-2. **insert_script.sql** - Populates tables with sample data
-3. **psm_script.sql** - Creates stored procedures, functions, views, and triggers
-4. **indexes_script.sql** - Creates non-clustered indexes for performance
-5. **encryption_script.sql** - Sets up column-level encryption (optional)
+4. Edit `.env` with your database credentials:
+   ```env
+   DB_SERVER=localhost
+   DB_DATABASE=Property_Management_DB
+   DB_USER=your_username
+   DB_PASSWORD=your_password
+   DB_PORT=1433
+   PORT=5000
+   NODE_ENV=development
+   ```
 
-### Step 3: Verify Database
+### 4. Configure Frontend
 
-Run this query to confirm setup:
-```sql
-USE PropertyManagementDB;
-SELECT COUNT(*) as CompanyCount FROM Company;
-SELECT COUNT(*) as PropertyCount FROM Property;
-SELECT COUNT(*) as TenantCount FROM Tenant;
-```
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
 
-You should see 10 companies, 10 properties, and 10 tenants.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
----
+## 🚀 Running the Application
 
-## Backend Setup
+### Start the Backend Server
 
-### Step 1: Navigate to Backend Folder
 ```bash
 cd backend
-```
-
-### Step 2: Install Dependencies
-```bash
-npm install
-```
-
-This installs: express, mssql, cors, dotenv
-
-### Step 3: Configure Database Connection
-
-Create a `.env` file in the `backend` folder:
-```env
-DB_SERVER=localhost
-DB_DATABASE=PropertyManagementDB
-DB_USER=sa
-DB_PASSWORD=your_password_here
-DB_PORT=1433
-PORT=5001
-```
-
-#### Configuration Options:
-
-**For SQL Server Authentication:**
-```env
-DB_SERVER=localhost
-DB_DATABASE=PropertyManagementDB
-DB_USER=sa
-DB_PASSWORD=YourPassword123
-DB_PORT=1433
-PORT=5001
-```
-
-**For Windows Authentication:** 
-Update the config in `server.js`:
-```javascript
-const config = {
-    server: process.env.DB_SERVER || 'localhost',
-    database: process.env.DB_DATABASE || 'PropertyManagementDB',
-    options: { 
-        encrypt: false, 
-        trustServerCertificate: true,
-        trustedConnection: true
-    }
-};
-```
-
-### Step 4: Start the Backend Server
-```bash
-node server.js
-```
-
-You should see:
-```
-Server running on http://localhost:5001
-```
-
-### Step 5: Verify Backend is Working
-
-Open in browser: `http://localhost:5001/api/companies`
-
-You should see JSON data with company information.
-
----
-
-## Frontend Setup
-
-### Step 1: Open New Terminal
-
-Keep the backend running and open a new terminal window.
-
-### Step 2: Navigate to Frontend Folder
-```bash
-cd frontend
-```
-
-### Step 3: Install Dependencies
-```bash
-npm install
-```
-
-### Step 4: Configure API URL (if using different port)
-
-If you changed the backend port from 5001, update the API URL in these files:
-- `src/components/Dashboard.js`
-- `src/components/Companies.js`
-- `src/components/Properties.js`
-- `src/components/Tenants.js`
-- `src/components/Units.js`
-- `src/components/Leases.js`
-- `src/components/Maintenance.js`
-- `src/components/Payments.js`
-
-Change:
-```javascript
-const API = 'http://localhost:5001/api';
-```
-
-### Step 5: Start the Frontend
-```bash
 npm start
 ```
 
-The application will open automatically at `http://localhost:3000`
+The backend server will run on `http://localhost:5000`
 
----
+### Start the Frontend
 
-## Running the Application
+In a new terminal:
 
-You need **two terminal windows** running simultaneously:
-
-### Terminal 1 - Backend
-```bash
-cd backend
-node server.js
-```
-
-### Terminal 2 - Frontend
 ```bash
 cd frontend
 npm start
 ```
 
----
+The frontend will run on `http://localhost:3000` and automatically open in your browser.
 
-## Troubleshooting
+## 📚 API Endpoints
 
-### Issue: "Network Error" in Browser
+### Companies
+- `GET /api/companies` - Get all companies
+- `POST /api/companies` - Create a company
+- `PUT /api/companies/:id` - Update a company
+- `DELETE /api/companies/:id` - Delete a company
 
-**Cause:** Backend is not running or wrong port.
+### Properties
+- `GET /api/properties` - Get all properties
+- `POST /api/properties` - Create a property
+- `PUT /api/properties/:id` - Update a property
+- `DELETE /api/properties/:id` - Delete a property
 
-**Fix:** 
-1. Ensure backend is running (`node server.js`)
-2. Check the PORT in `.env` matches the API URL in frontend components
+### Tenants
+- `GET /api/tenants` - Get all tenants
+- `POST /api/tenants` - Create a tenant
+- `PUT /api/tenants/:id` - Update a tenant
+- `DELETE /api/tenants/:id` - Delete a tenant
 
-### Issue: "Access Denied" or HTTP 403 Error
+### Units
+- `GET /api/units` - Get all units
+- `POST /api/units` - Create a unit
+- `PUT /api/units/:id` - Update a unit
+- `DELETE /api/units/:id` - Delete a unit
 
-**Cause (Mac):** AirPlay Receiver uses port 5000 by default.
+### Leases
+- `GET /api/leases` - Get all leases
+- `POST /api/leases` - Create a lease
+- `PUT /api/leases/:id` - Update a lease
+- `DELETE /api/leases/:id` - Delete a lease
 
-**Fix:** 
-1. Go to System Preferences → General → AirDrop & Handoff
-2. Turn OFF "AirPlay Receiver"
-3. Or change PORT to 5001 in `.env`
+### Invoices
+- `GET /api/invoices` - Get all invoices
+- `POST /api/invoices` - Create an invoice
+- `PUT /api/invoices/:id` - Update an invoice
+- `DELETE /api/invoices/:id` - Delete an invoice
 
-### Issue: "ConnectionError" or "Login Failed"
+### Payments
+- `GET /api/payments` - Get all payments
+- `POST /api/payments` - Record a payment
 
-**Cause:** Wrong database credentials.
+### Maintenance Requests
+- `GET /api/maintenance` - Get all maintenance requests
+- `POST /api/maintenance` - Create a maintenance request
+- `PUT /api/maintenance/:id` - Update a maintenance request
+- `DELETE /api/maintenance/:id` - Delete a maintenance request
 
-**Fix:** 
-1. Verify SQL Server is running
-2. Check username/password in `.env`
-3. Ensure SQL Server allows TCP/IP connections
+### Vendors
+- `GET /api/vendors` - Get all vendors
+- `POST /api/vendors` - Create a vendor
+- `PUT /api/vendors/:id` - Update a vendor
+- `DELETE /api/vendors/:id` - Delete a vendor
 
-### Issue: "Cannot find module 'express'"
+### Users
+- `GET /api/users` - Get all users
+- `POST /api/users` - Create a user
+- `PUT /api/users/:id` - Update a user
+- `DELETE /api/users/:id` - Delete a user
 
-**Cause:** Dependencies not installed.
+### Dashboard
+- `GET /api/dashboard/kpis` - Get key performance indicators
+- `GET /api/dashboard/revenue` - Get revenue breakdown
+- `GET /api/dashboard/occupancy` - Get occupancy rates
 
-**Fix:**
-```bash
-cd backend
-npm install express mssql cors dotenv
+### Audit Log
+- `GET /api/audit` - Get audit log entries
+
+## 🎨 Tech Stack
+
+### Frontend
+- **React** - UI framework
+- **React Router** - Navigation
+- **Axios** - HTTP client
+- **CSS3** - Modern styling with gradients and animations
+
+### Backend
+- **Node.js** - Runtime environment
+- **Express** - Web framework
+- **mssql** - SQL Server driver
+- **dotenv** - Environment configuration
+- **cors** - Cross-origin resource sharing
+
+### Database
+- **Microsoft SQL Server** - Relational database
+- 17 tables with relationships
+- Multiple analytical views
+- Stored procedures and functions
+
+## 📁 Project Structure
+
 ```
-
-### Issue: SQL Server Connection Refused
-
-**Fix:** Enable TCP/IP in SQL Server:
-1. Open SQL Server Configuration Manager
-2. SQL Server Network Configuration → Protocols for [Instance]
-3. Right-click TCP/IP → Enable
-4. Restart SQL Server service
-
----
-
-## Project Structure
-```
-property-management-gui/
+property-management-ui/
 ├── backend/
-│   ├── server.js          # Express API server
-│   ├── .env               # Database configuration
-│   └── package.json       # Backend dependencies
-│
+│   ├── server.js          # Express server with all API routes
+│   ├── package.json       # Backend dependencies
+│   ├── .env.example       # Environment template
+│   └── .env               # Your configuration (create this)
 ├── frontend/
 │   ├── src/
-│   │   ├── App.js         # Main application with routing
-│   │   ├── App.css        # Global styles
-│   │   └── components/
-│   │       ├── Dashboard.js    # Overview with stats
-│   │       ├── Companies.js    # CRUD for companies
-│   │       ├── Properties.js   # CRUD for properties
-│   │       ├── Units.js        # CRUD for units
-│   │       ├── Tenants.js      # CRUD for tenants
-│   │       ├── Leases.js       # CRUD for leases
-│   │       ├── Maintenance.js  # Maintenance workflow
-│   │       └── Payments.js     # Payment workflow
+│   │   ├── components/    # React components
+│   │   │   ├── Dashboard.js
+│   │   │   ├── Companies.js
+│   │   │   ├── Properties.js
+│   │   │   ├── Tenants.js
+│   │   │   ├── Units.js
+│   │   │   ├── Leases.js
+│   │   │   ├── Invoices.js
+│   │   │   ├── Payments.js
+│   │   │   ├── Maintenance.js
+│   │   │   ├── Vendors.js
+│   │   │   ├── Users.js
+│   │   │   └── AuditLog.js
+│   │   ├── App.js         # Main app component
+│   │   ├── App.css        # Application styles
+│   │   └── index.css      # Global styles
 │   └── package.json       # Frontend dependencies
-│
-└── sql/
-    ├── create_tables.sql      # DDL script
-    ├── insert_script.sql      # Sample data
-    ├── psm_script.sql         # Procedures, views, triggers
-    ├── indexes_script.sql     # Non-clustered indexes
-    └── encryption_script.sql  # Column encryption
+└── README.md              # This file
 ```
 
-### Database Objects Demonstrated
+## 🔧 Troubleshooting
 
-| Type | Objects |
-|------|---------|
-| Stored Procedures | `sp_CreateMaintenanceRequest`, `sp_AddPayment`, `sp_AssignVendorToRequest` |
-| Views | `vw_ActiveLeasesReport`, `vw_MaintenanceRequestSummary`, `vw_TenantPaymentHistory`, `vw_CompanyPortfolioOverview`, `vw_LeaseRevenueSummary`, `vw_UnpaidInvoices` |
-| Trigger | `trg_Audit_CompanyChanges` (fires on Company insert/update/delete) |
-| UDFs | `udf_GetTenantFullName`, `udf_GetOutstandingBalance`, `udf_GetPropertyUnitCount`, `udf_IsLeaseActive` |
+### Database Connection Issues
+- Verify SQL Server is running
+- Check database credentials in `.env`
+- Ensure SQL Server allows TCP/IP connections
+- Verify port 1433 is not blocked by firewall
 
----
+### CORS Errors
+- Ensure backend is running on port 5000
+- Check that frontend is configured to use `http://localhost:5000/api`
 
-## Stopping the Application
+### Missing Dependencies
+```bash
+# Backend
+cd backend
+npm install
 
-1. **Frontend:** Press `Ctrl + C` in the frontend terminal
-2. **Backend:** Press `Ctrl + C` in the backend terminal
+# Frontend
+cd frontend
+npm install
+```
 
----
+## 🎯 Next Steps
 
-## Support
+1. **Configure Database**: Update `.env` with your SQL Server credentials
+2. **Run Database Scripts**: Execute schema and seed data scripts
+3. **Start Backend**: `cd backend && npm start`
+4. **Start Frontend**: `cd frontend && npm start`
+5. **Access Application**: Open `http://localhost:3000`
 
-If you encounter any issues, check:
-1. Both terminals are running (backend + frontend)
-2. SQL Server is running and accessible
-3. `.env` file has correct credentials
-4. Port 5001 is not blocked by firewall
+## 📝 License
+
+This project is part of a property management database system.
+
+## 👥 Support
+
+For issues or questions, please refer to the implementation documentation.

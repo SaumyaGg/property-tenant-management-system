@@ -1,74 +1,131 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API = 'http://localhost:5001/api';
+const API_URL = 'http://localhost:5050/api';
 
 function Dashboard() {
-  const [portfolio, setPortfolio] = useState([]);
+  const [kpis, setKpis] = useState(null);
   const [revenue, setRevenue] = useState([]);
-  const [maintenance, setMaintenance] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${API}/dashboard/portfolio`).then(res => setPortfolio(res.data));
-    axios.get(`${API}/dashboard/revenue`).then(res => setRevenue(res.data));
-    axios.get(`${API}/maintenance`).then(res => setMaintenance(res.data.slice(0, 5)));
+    fetchDashboardData();
   }, []);
 
-  const totalUnits = portfolio.reduce((sum, p) => sum + p.TotalUnits, 0);
-  const totalRevenue = revenue.reduce((sum, r) => sum + parseFloat(r.TotalMonthlyRent || 0), 0);
-  const openRequests = maintenance.filter(m => m.RequestStatus === 'Open').length;
+  const fetchDashboardData = async () => {
+    try {
+      const [kpisRes, revenueRes] = await Promise.all([
+        axios.get(`${API_URL}/dashboard/kpis`),
+        axios.get(`${API_URL}/dashboard/revenue`)
+      ]);
+      setKpis(kpisRes.data);
+      setRevenue(revenueRes.data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error);
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Loading dashboard...</p>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <div className="page-header"><h1>Dashboard</h1></div>
-      
-      <div className="dashboard-grid">
-        <div className="card">
-          <h3>Total Properties</h3>
-          <div className="value">{portfolio.reduce((sum, p) => sum + p.TotalProperties, 0)}</div>
+    <div className="fade-in">
+      <h1 style={{ marginBottom: '2rem', color: 'var(--dark)', fontSize: '2rem', fontWeight: '700' }}>
+        📊 Dashboard Overview
+      </h1>
+
+      {/* KPI Cards */}
+      <div className="stats-grid">
+        <div className="stat-card">
+          <div className="stat-icon">🏢</div>
+          <div className="stat-label">Total Properties</div>
+          <div className="stat-value">{kpis?.TotalProperties || 0}</div>
         </div>
-        <div className="card">
-          <h3>Total Units</h3>
-          <div className="value">{totalUnits}</div>
+
+        <div className="stat-card">
+          <div className="stat-icon">🚪</div>
+          <div className="stat-label">Total Units</div>
+          <div className="stat-value">{kpis?.TotalUnits || 0}</div>
         </div>
-        <div className="card">
-          <h3>Monthly Revenue</h3>
-          <div className="value">${totalRevenue.toLocaleString()}</div>
+
+        <div className="stat-card">
+          <div className="stat-icon">👥</div>
+          <div className="stat-label">Total Tenants</div>
+          <div className="stat-value">{kpis?.TotalTenants || 0}</div>
         </div>
-        <div className="card">
-          <h3>Open Maintenance</h3>
-          <div className="value">{openRequests}</div>
+
+        <div className="stat-card success">
+          <div className="stat-icon">💰</div>
+          <div className="stat-label">Total Revenue</div>
+          <div className="stat-value">
+            ${kpis?.TotalRevenue ? parseFloat(kpis.TotalRevenue).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'}
+          </div>
+        </div>
+
+        <div className="stat-card danger">
+          <div className="stat-icon">🔧</div>
+          <div className="stat-label">Open Maintenance</div>
+          <div className="stat-value">{kpis?.OpenMaintenanceRequests || 0}</div>
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-        <div className="card">
-          <h3 style={{ marginBottom: '15px' }}>Company Portfolio</h3>
-          <table>
-            <thead><tr><th>Company</th><th>Properties</th><th>Units</th></tr></thead>
-            <tbody>
-              {portfolio.map(p => (
-                <tr key={p.CompanyID}>
-                  <td>{p.CompanyName}</td>
-                  <td>{p.TotalProperties}</td>
-                  <td>{p.TotalUnits}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Revenue Breakdown */}
+      <div className="card" style={{ marginBottom: '2rem' }}>
+        <div className="card-header">
+          <h2>💵 Revenue Breakdown (Recent Months)</h2>
         </div>
-
-        <div className="card">
-          <h3 style={{ marginBottom: '15px' }}>Revenue by Property</h3>
+        <div className="table-container">
           <table>
-            <thead><tr><th>Property</th><th>Monthly Rent</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Paid</th>
+                <th>Pending</th>
+                <th>Overdue</th>
+                <th>Total</th>
+              </tr>
+            </thead>
             <tbody>
-              {revenue.map(r => (
-                <tr key={r.PropertyID}>
-                  <td>{r.PropertyName}</td>
-                  <td>${parseFloat(r.TotalMonthlyRent).toLocaleString()}</td>
+              {revenue.length === 0 ? (
+                <tr>
+                  <td colSpan="5" className="text-center">No revenue data available</td>
                 </tr>
-              ))}
+              ) : (
+                revenue.slice(0, 6).map((item, index) => {
+                  const total = parseFloat(item.PaidAmount || 0) + parseFloat(item.PendingAmount || 0) + parseFloat(item.OverdueAmount || 0);
+                  return (
+                    <tr key={index}>
+                      <td>{item.Month}</td>
+                      <td>
+                        <span className="badge badge-success">
+                          ${parseFloat(item.PaidAmount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                        </span>
+                      </td>
+                      <td>
+                        <span className="badge badge-warning">
+                          ${parseFloat(item.PendingAmount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                        </span>
+                      </td>
+                      <td>
+                        <span className="badge badge-danger">
+                          ${parseFloat(item.OverdueAmount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                        </span>
+                      </td>
+                      <td>
+                        <strong>${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</strong>
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
             </tbody>
           </table>
         </div>
