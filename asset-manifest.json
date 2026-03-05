@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/property-tenant-management-system/static/css/main.ff113395.css",
+    "main.js": "/property-tenant-management-system/static/js/main.fa5c5c30.js",
+    "static/js/453.d7446e4a.chunk.js": "/property-tenant-management-system/static/js/453.d7446e4a.chunk.js",
+    "index.html": "/property-tenant-management-system/index.html",
+    "main.ff113395.css.map": "/property-tenant-management-system/static/css/main.ff113395.css.map",
+    "main.fa5c5c30.js.map": "/property-tenant-management-system/static/js/main.fa5c5c30.js.map",
+    "453.d7446e4a.chunk.js.map": "/property-tenant-management-system/static/js/453.d7446e4a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff113395.css",
+    "static/js/main.fa5c5c30.js"
+  ]
+}
